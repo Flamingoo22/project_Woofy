@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Caveat|Gloria+Hallelujah|Nanum+Pen+Script|Reenie+Beanie|Chewy">
+    <title>Woofy</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+</head>
+<body style="font-family: nanum pen script; border-top: 50px solid rgb(170, 100, 9); background-color: rgba(251, 193, 1, 0.801); font-weight:700; font-size:1.5em">
+    <div>
+        <div class="navbar" style="padding:0 15%;">
+            <div class="d-flex" style="margin-left: 25%; align-items: baseline;">
+                <h1 style="color:rgb(187, 118, 27); font-size: 10em; font-weight:500; font-family:chewy;
+                background-color: #f3ec78;
+                background-image: linear-gradient(90deg, #00a478, rgb(255, 157, 0) , #af4261);
+                background-size: 100%;
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                -webkit-text-fill-color: transparent; 
+                -moz-text-fill-color: transparent;
+                " class="btn gradient">Woofy</h1>
+                <!-- <img src="../static/img/woofy-removebg-preview.png" alt="" style="height:200px; margin-left: -80px;"> -->
+            </div>
+            <div>
+                <a href="/woofy/user_page" class="btn" style='font-size:1.5em'>My Info</a>
+                {% if session['uuid']%}
+                <a href="/logout" class="btn" style='font-size:1.5em'>Log Out</a>
+                {% else %}
+                <a href="/woofy/register" class="btn" style='font-size:1.5em'>Sign In</a>
+                {% endif %}
+            </div>
+        </div>
+        <div style="padding:0 15%;">
+            <p style=" font-size: 2em; color: rgb(94, 72, 14); margin-bottom: -10px;">Search For Woofies:</p>
+            <div class="d-flex navbar" id="banner-message">
+                <input type="search" name="" id="breed_search" style="width:65%; height:40px; box-shadow:2px 2px 4px rgba(49, 13, 2, 0.433); font-size:1.3em" placeholder="Search Your Favorite Dog!" class="form-control p-4">
+                <select class="breed_select form-select" style="width:34%; box-shadow:2px 2px 4px rgba(49, 13, 2, 0.433);font-size:1.1em">
+                    <option></option>
+                </select>
+                <!-- <img src="../static/img/search_icon.png" alt="" style="height:40px" class="btn p-0"> -->
+            </div>
+        </div>
+        <div style="padding:0 10%; display: flex;justify-content: center;align-items: center;" id="breed_data">
+            <img style="height:750px; object-fit:contain; object-position: 100% 0;; box-shadow:2px 2px 4px rgba(49, 13, 2, 0.433);" id="breed_image" src="../static/img/dashboard.jpg" class="rounded" />
+            <!-- <img src="../static/img/happy-dog-puppy-smiling-colored-blue-backgorund-closed-eyes-happy-dog-puppy-smiling-colored-blue-backgorund-193236837.jpg" alt="" style="width:100% ; height:650px; object-fit: cover; object-position: 100% 0;"> -->
+        </div>
+
+        <!-- <div style="padding:0 30%;">
+            <div class="modal_inner">
+                <form onsubmit="addPost(event)" id="new_post" class="container bg-light rounded p-3 d-flex flex-column gap-3">
+                    <div class="modal_top">
+                        <div class="modal_title">Make a Post!</div>
+                        <button class="modal_close" type="button">
+                            <span class="material-icons">close</span>
+                        </button>
+                    </div>
+                    <div class="modal_content">
+                        <div class="d-flex">
+                            <label for="title">Title:</label>
+                            <input type="text" name="title" class="form-control">
+                        </div>
+                        <textarea name="content" id="content" class="form-control" style="border:none" placeholder="What's in your mind?"></textarea>
+                    </div>
+                    <div class="modal_bottm">
+                        <input type="submit" class="btn mt-4" style="width:100% ; background-color: rgb(207, 210, 213)">
+                    </div>
+                </form>
+            </div>
+        </div> -->
+        <div id="posts" class="d-flex flex-column gap-4" style="padding: 0 20%">
+            <div class="d-flex justify-content-center" >
+                <input type="text" onclick="addPost(event)" class="form-control mt-5" style="width:100% ;font-size:1.3em; box-shadow:2px 2px 4px rgba(49, 13, 2, 0.433);" placeholder="Would you like to make a Post?">
+                </input>
+            </div>
+            {% for post in posts %}
+            <div class="container-sm bg-light rounded p-4" id='post{{post.id}}' style="box-shadow:2px 2px 4px rgba(49, 13, 2, 0.433); background-image:url('../static/img/yellow_bg.jpg')">
+                <p><a href="/woofy/user_page/{{post.creator.id}}" style="text-decoration:none">{{post.creator.username}}</a></p>
+                <p style="color:rgba(76, 76, 77, 0.685); font-size:0.8em">{{post.time_span()}}</p>
+                <p style="font-size:2em">{{post.title}}</p>
+                <p>{{post.content}}</p>
+                <div class="d-flex gap-5 justify-content-around">
+                    {% set ns = namespace(found=false) %}
+                    {% for user in post.liked_by %}
+                    {% if session['uuid'] == user.id %}
+                    {% set ns.found = true %}
+                    {% endif %}
+                    {% endfor %}
+                    <div>
+                        {% if ns.found %}
+                        <a class="btn liked material-icons" onclick="like(event, {{post.id}} )">favorite</a>
+                        {% else %}
+                        <a class="btn like material-icons" onclick="like(event, {{post.id}} )">favorite_border</a>
+                        {% endif %}
+                        <span style="margin-left:-20%;">({{post.num_likes}})</span>  
+                    </div>
+                    <div>
+                        <a class="btn"  style='font-size:1.2em' id="btn{{post.id}}" onclick="comment(event, {{post.id}})">Comments</a>
+                        <span style="margin-left:-10%;">({{post.num_comments}})</span>  
+                    </div>
+                    {% if post.creator.id == session['uuid'] %}
+                    <a class='btn' style='font-size:1.2em' onclick="removePost(event, {{post.id}} )">Delete</a>
+                    {% endif %}
+                    
+                </div>
+                <div id="commentbox{{post.id}}" style="display:none ;border-top:2px solid rgba(0, 0, 0, 0.402); padding:20px 5%">
+                    <h4 class="text-center" style='font-size:1.7em'>User Comments:</h4>
+                    {% for comment in post.comments%}
+                    <div class="navbar rounded px-4" style="box-shadow:2px 2px rgba(0, 0, 0, 0.25) ;">
+                        <div class="d-flex flex-column">
+                            <p>{{comment.commentor.username}}: {{comment.content}}</p>
+                            <p style="color:rgba(76, 76, 77, 0.685); font-size:0.8em">{{comment.time_span()}}</p>
+                        </div>
+                        {% if comment.commentor.id == session['uuid'] %}
+                        <button onclick="removeComment(event, {{comment.id}})">Delete</button>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="../static/js/dashboard.js"></script>
+    <script src="../static/js/modal.js"></script>
+    <script src="../static/js/dog_search.js"></script>
+</body>
+</html>
+

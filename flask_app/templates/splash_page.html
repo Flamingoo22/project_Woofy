@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Woofy</title>
+</head>
+<body class="bg-secondary" style="font-family:cursive">
+    <div class="text-center" style="padding:0 20%;">
+        <img src="../static/img/giphy.gif" alt="giphy">
+        <h1>
+            <span id="question"></span> 
+            <br>
+            <span id="answer"></span>
+        </h1>
+        <p id="donationPage" style="margin-top:-50px"></p>
+        <div class="d-flex flex-column justify-content-center align-items-center" style="margin-top:-20px">
+            <a href="/dashboard" class="btn btn-dark btn-outline-light mt-5" style="border:5px solid white;  border-radius:50px ; height:100px; width:400px; font-size: 3em;" onmouseover="inside(this)" onmouseleave="outside(this)" id="btn" action="/dashboard">Enter Woofy</a>
+            <button id="randJoke" class="btn btn-dark btn-outline-light mt-5" style="border:5px solid white;  border-radius:50px ; height:100px; width:600px; font-size: 3em;" >ONE MORE JOKE!</button>
+        </div>
+    </div>
+    <script src="../static/js/dadjoke.js"></script>
+</body>
+</html>

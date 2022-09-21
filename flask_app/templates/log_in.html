@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Caveat|Gloria+Hallelujah|Nanum+Pen+Script|Reenie+Beanie|Chewy">
+    <link rel="stylesheet" href="../static/css/user_page.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <title>Woofy</title>
+        <style>
+            *{
+                font-family: caveat;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body class="bg-dark" style = 'font-family: cursive;'>
+        <img src="../static/img/cute-puppies-saint-bernard-cute-dog-adorable-fluffy-dog-4000x2660-1796.jpg" style="position:absolute; z-index: -1; width: 100%;">
+        <div class="navbar" style="padding:0 15%;">
+            <div class="d-flex">
+                <h1 style="color:rgb(30, 23, 14); font-size: 5em; font-weight:bolder; font-family:chewy;" class="btn">Woofy</h1>
+                
+            </div>
+            <div>
+                <a href="/dashboard" class="btn">Home</a>
+            </div>
+        </div>
+        <div style=" padding: 5% 10%;" >
+            <h2 style="color:rgb(26, 28, 29)">Welcome to the Woofy Club!</h2>
+            <div style=" display:flex; justify-content: space-around; padding: 0 10%;">
+                <form action="/login" method ='POST' style="display:flex; flex-direction:column; background-color: rgba(13, 153, 184, 0.254);color: aliceblue; padding: 5% 5%; gap:5px; border-radius: 10px" id="login">
+                    <h2 class="fs-2 text-dark">Log In</h2>
+                    {% for message in get_flashed_messages(category_filter=['err_users_login_invalid']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+                    <div class="d-flex justify-content-between">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" class="form-control" style="width:60%">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <label for="password">Password:</label>
+                        <input type="text" name="password" class="form-control" style="width:60%">
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-warning mt-5" style="width:30%">
+                </form>
+                <form action="/register" id="registerForm" method = 'POST' style="display:flex; flex-direction:column; background-color: rgba(12, 145, 175, 0.274);color: aliceblue; padding: 5% 5%; gap:5px; width: 30vw; border-radius: 10px;">
+                    <h2 class="fs-2 text-dark">Join the Woofy Club!</h2>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" class="form-control">
+                    {% for message in get_flashed_messages(category_filter=['err_users_username']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+                    {% for message in get_flashed_messages(category_filter=['err_users_repeated_username']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+                    
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                    {% for message in get_flashed_messages(category_filter=['err_users_email']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+                    {% for message in get_flashed_messages(category_filter=['err_users_invalid_email']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+                    {% for message in get_flashed_messages(category_filter=['err_users_repeated_email']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+    
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" name="dob" class="form-control">
+                    {% for message in get_flashed_messages(category_filter=['err_users_dob']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+    
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" class="form-control">
+                    {% for message in get_flashed_messages(category_filter=['err_users_password']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+    
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="text" name="confirm_password" class="form-control">
+                    {% for message in get_flashed_messages(category_filter=['err_users_confirm_password']) %}
+                    <p class="alert alert-danger">{{message}}</p>
+                    {% endfor %}
+    
+                    <input type="submit" value="Register" class="btn btn-warning mt-5" style="width:30%">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
