@@ -54,7 +54,7 @@
 
 ![User_Post](img/woofy_user_post.gif)
 
-<p>Woofy is my first full stack project built with python. The idea is to create a social media platform for people whose interested in dogs to either share their stories with puppies and for people whose looking to adapt dogs, they can also ask questions in the platform. </p>
+<p>Woofy is my first full stack project built with python. The idea is to create a social media platform for people whose interested in dogs to share their stories with puppies and for people whose looking to adapt dogs, they can also ask questions in the platform. </p>
 
 <p>
   All user information are secured with Bcrypt. And backend validation set up with python to avoid invalid credentials.</p>
