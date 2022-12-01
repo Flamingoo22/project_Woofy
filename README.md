@@ -46,10 +46,11 @@
 
 ![Main_Page](img/woofy_splashpage.gif)
 
-![Dashboard](img/woofy_dashboard.gif)
+![Dashboard](img/woofy_dashboard1.gif)
+
+![Other_User_Page](img/woofy_dashboard2.gif)
 
 ![User_Page](img/woofy_userpage.gif)
-
 
 ![User_Post](img/woofy_user_post.gif)
 
