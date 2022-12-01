@@ -44,18 +44,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Main_Page](img/dashboard.gif)
+![Main_Page](img/woofy_splashpage.gif)
+
+![Dashboard](img/woofy_dashboard.gif)
+
+![User_Page](img/woofy_userpage.gif)
 
 
-![Product_Page](img/add_to_cart.gif)
-
-
-![Shopping_Cart](img/checkout.gif)
-
-![Stripe_Checkout](img/checkout_2.gif)
-
-
-![Confirmation_Thank_You](https://user-images.githubusercontent.com/109699879/204870316-77605e79-3467-45d1-98cf-f8153ea754d1.jpg)
+![User_Post](img/woofy_user_post.gif)
 
 <p>Woofy is my first full stack project built with python. The idea is to create a social media platform for people whose interested in dogs to either share their stories with puppies and for people whose looking to adapt dogs, they can also ask questions in the platform.</p>
 <p>
