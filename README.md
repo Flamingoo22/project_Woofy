@@ -12,7 +12,7 @@
     <a href="https://github.com/Flamingoo22/project_Woofy"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Flamingoo22/project_Woofy">View Demo</a>
+    <a href="https://youtu.be/NRmcDfxE05I">View Demo Video on Youtube</a>
   </p>
 </div>
 
