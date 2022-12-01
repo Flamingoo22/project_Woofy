@@ -34,7 +34,7 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
       </ul>
     </li>
-    <li><a href="#contact">Contacts</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -118,7 +118,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 
 <!-- CONTACT -->
-## Contacts
+## Contact
 
 * Yifan Qiu - [@Linkedin](https://www.linkedin.com/in/yifan-qiu-9813bb232/) - yif.chu22@gmail.com
 
