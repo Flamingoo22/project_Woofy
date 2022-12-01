@@ -53,7 +53,10 @@
 
 ![User_Post](img/woofy_user_post.gif)
 
-<p>Woofy is my first full stack project built with python. The idea is to create a social media platform for people whose interested in dogs to either share their stories with puppies and for people whose looking to adapt dogs, they can also ask questions in the platform. All user information are secured with Bcrypt. And backend validation set up with python to avoid invalid registration credentials.</p>
+<p>Woofy is my first full stack project built with python. The idea is to create a social media platform for people whose interested in dogs to either share their stories with puppies and for people whose looking to adapt dogs, they can also ask questions in the platform. </p>
+
+<p>
+  All user information are secured with Bcrypt. And backend validation set up with python to avoid invalid registration credentials.</p>
 <p>
  The fronted was built with HTML5, CSS, JS and bootstrap. And the server is using flask and mvp built in python. I used python to create global state variables in my project for data persistence and easy debugging purposes.
 </p>
