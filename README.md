@@ -43,17 +43,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-![Main_Page](img/woofy_splashpage.gif)
-
-![Dashboard](img/woofy_dashboard1.gif)
-
-![Other_User_Page](img/woofy_dashboard2.gif)
-
-![User_Page](img/woofy_userpage.gif)
-
-![User_Post](img/woofy_user_post.gif)
-
 <p>Woofy is my first full stack project built with python. The idea is to create a social media platform for people whose interested in dogs to share their stories with puppies and for people whose looking to adapt dogs, they can also ask questions in the platform. </p>
 
 <p>
@@ -64,6 +53,17 @@
 <p>
   And lastly the database is built with mySQL. I built the schema using mySQL workbench and established data relationships from there.
 </p>
+![Main_Page](img/woofy_splashpage.gif)
+
+![Dashboard](img/woofy_dashboard1.gif)
+
+![Other_User_Page](img/woofy_dashboard2.gif)
+
+![User_Page](img/woofy_userpage.gif)
+
+![User_Post](img/woofy_user_post.gif)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
