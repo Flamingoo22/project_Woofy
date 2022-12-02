@@ -53,6 +53,8 @@
 <p>
   And lastly the database is built with mySQL. I built the schema using mySQL workbench and established data relationships from there.
 </p>
+
+
 ![Main_Page](img/woofy_splashpage.gif)
 
 ![Dashboard](img/woofy_dashboard1.gif)
